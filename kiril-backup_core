@@ -1,0 +1,76 @@
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <fstream>
+
+using namespace std;
+
+int N=0;
+struct teacher
+{   
+    int department;
+    string fio[3];
+    int status;
+};
+
+void add(teacher*& massive,int& N)
+{
+    cout<<"Pleace input departament"<<endl;
+    cin>>massive[N].department;
+    cout<<"Pleace input fio"<<endl;
+    cin>>massive[N].fio[0]>>massive[N].fio[1]>>massive[N].fio[2];
+    cout<<"Pleace input status"<<endl;
+    cin>>massive[N].status;
+    N++;
+}
+
+void Print(teacher*& massive,int& N)
+{
+    for (int  i = 0; i < N; i++)
+    {
+        cout<<"Departament"<<" " <<massive[i].department<<endl;
+        cout<<"Fio"<<" "<<massive[i].fio[0]<<" "<<massive[i].fio[1]<<" "<<massive[i].fio[2]<<endl;
+        cout<<"Status"<<" "<<massive[i].status<<endl;
+        cout<<"######################################"<<endl;
+    }
+    
+}
+
+int main()
+{
+    teacher* massive= new teacher[1000000];
+    int solution=999999;
+    while(solution!=10)
+    {
+        cout<<"1--Add new information about teacher"<<endl;
+        cout<<"2--Print informaiton about teacher"<<endl;
+        cout<<"6--Exit"<<endl;
+        cout<<"Please input your solution"<<endl;
+        cin>>solution;
+        switch (solution)
+        {
+            case 1:
+            {
+                add(massive,N);
+                system("cls");
+                break;
+            }
+            case 2:
+            {
+                Print(massive,N);
+                system("pause");
+                system("cls");
+                break;
+            }
+            case 6:
+            {
+                return 0;
+            }
+        }
+
+    }
+    
+    
+    system("pause");
+    return 0;
+}
